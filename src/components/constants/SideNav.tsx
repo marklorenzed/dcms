@@ -1,11 +1,24 @@
 import { NavItem } from "@/types";
-import { BookOpenCheck, LayoutDashboard } from "lucide-react";
+import { BookOpenCheck, LayoutDashboard, Users } from "lucide-react";
+import { FaUserDoctor } from "react-icons/fa6";
 
 export const NavItems: NavItem[] = [
   {
     title: "Dashboard",
     icon: LayoutDashboard,
     href: "/",
+    color: "text-sky-500",
+  },
+  {
+    title: "Patient",
+    icon: Users,
+    href: "/patients",
+    color: "text-sky-500",
+  },
+  {
+    title: "Dentists",
+    icon: FaUserDoctor,
+    href: "/dentists",
     color: "text-sky-500",
   },
   {

@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 
 import { type NavItem } from "@/types";
@@ -53,7 +52,7 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
               <AccordionTrigger
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
-                  "group relative flex h-12 justify-between px-4 py-2 text-base duration-200 hover:bg-muted hover:no-underline"
+                  "group relative flex h-12 justify-between px-4 py-2 text-base duration-200 hover:bg-muted hover:no-underline",
                 )}
               >
                 <div>
@@ -62,7 +61,7 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
                 <div
                   className={cn(
                     "absolute left-12 text-base duration-200 ",
-                    !isOpen && className
+                    !isOpen && className,
                   )}
                 >
                   {item.title}
@@ -83,14 +82,15 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
                     className={cn(
                       buttonVariants({ variant: "ghost" }),
                       "group relative flex h-12 justify-start gap-x-3",
-                      path === child.href && "bg-muted font-bold hover:bg-muted"
+                      path === child.href &&
+                        "bg-muted font-bold hover:bg-muted",
                     )}
                   >
                     <child.icon className={cn("h-5 w-5", child.color)} />
                     <div
                       className={cn(
                         "absolute left-12 text-base duration-200",
-                        !isOpen && className
+                        !isOpen && className,
                       )}
                     >
                       {child.title}
@@ -110,20 +110,20 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
             className={cn(
               buttonVariants({ variant: "ghost" }),
               "group relative flex h-12 justify-start",
-              path === item.href && "bg-muted font-bold hover:bg-muted"
+              path === item.href && "bg-muted font-bold hover:bg-muted",
             )}
           >
             <item.icon className={cn("h-5 w-5", item.color)} />
             <span
               className={cn(
                 "absolute left-12 text-base duration-200",
-                !isOpen && className
+                !isOpen && className,
               )}
             >
               {item.title}
             </span>
           </Link>
-        )
+        ),
       )}
     </nav>
   );

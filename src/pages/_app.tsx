@@ -1,9 +1,9 @@
-import { useToast } from "@/hooks/use-toast";
+// import { useToast } from "@/hooks/use-toast";
 import "@/styles/globals.css";
 import { persistor, store } from "@/redux/store";
 import { Metadata, NextPage } from "next";
 import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { ReactElement, ReactNode } from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page);
-  const { toast } = useToast();
+  // const { toast } = useToast();
 
   return (
     <Provider store={store}>

@@ -3,6 +3,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import sideNavSlice from "./features/sidenav";
+import { clinicApi } from "./features/clinics";
 
 const persistConfig = {
   key: "root",
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   sideNav: sideNavSlice,
+  [clinicApi.reducerPath]: clinicApi.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -21,7 +23,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }),
+    }).concat(clinicApi.middleware),
   devTools: true,
 });
 

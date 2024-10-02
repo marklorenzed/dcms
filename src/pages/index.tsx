@@ -1,17 +1,19 @@
-import Image from "next/image";
-import localFont from "next/font/local";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { useLazyGetAllClinicsQuery } from "@/redux/features/clinics";
+import { useEffect } from "react";
 
 export default function Home() {
-  return <></>;
+  const [getClinics] = useLazyGetAllClinicsQuery();
+  useEffect(() => {
+    getClinics().then((res) => {
+      console.log(res.data);
+    });
+  }, []);
+
+  return (
+    <div className="flex flex-col p-8">
+      <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+        Clinics
+      </h2>
+    </div>
+  );
 }
