@@ -32,7 +32,7 @@ export default function Sidebar({ className }: SidebarProps) {
     >
       <BsArrowLeftShort
         className={cn(
-          "absolute -right-3 top-20 cursor-pointer rounded-full border text-3xl text-foreground",
+          "absolute -right-3 top-20 cursor-pointer rounded-full border text-3xl text-foreground bg-white",
           !isOpen && "rotate-180"
         )}
         onClick={handleToggle}
